@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    
+    <div class="row mt">
+
+        <div class="col-lg-4">
+            <h4><i class="fa fa-angle-right"></i> Lista de Productos</h4>
+            
+            <div class="form-panel">
+                <form role="form" class="form-horizontal style-form">
+                    <div class="form-group has-success">
+                        <label class="col-lg-2 control-label" for="f-name"><i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i></label>
+                        <div class="col-lg-10">
+                            <input type="text" placeholder="xxxxxxxxxxxxxxxxxxx" id="f-nam" class="form-control">
+                            <p class="help-block">Escanee o Ingrese el Codigo de barra</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button class="btn btn-theme" type="submit">Buscar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+            <h4><i class="fa fa-angle-right"></i> Datos de Productos</h4>
+            <div class="content-panel" style="height:500px;overflow:scroll;">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Catidad</th>
+                            <th>Precio</th>
+                            <th>Nombre</th>
+                            <th>Catidad</th>
+                            <th>Precio</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-md-5 col-md-offset-7">
+                    <div class="content-panel">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Sub Total:</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Impuestos:</h4>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Total:</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

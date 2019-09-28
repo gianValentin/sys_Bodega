@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<div id="login-page">
+    <div class="container">
+        <form class="form-login" id="frmLogin">
+            <h2 class="form-login-heading">INGRESAR AHORA</h2>
+            <div class="login-wrap">
+                <input type="text" class="form-control" placeholder="Usuario" autofocus name="txtUsuario">
+                <br>
+                <input type="password" class="form-control" placeholder="Contraseña" name="txtContraseña">
+                <br />
+                <button class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i> INGRESAR</button>
+                <hr>
+
+                <div class="registration">
+                    Quieres Hacer un Registro Ahora?<br />
+                    <a class="" href="#">
+                        Crear una Cuenta
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+
+
+            $("#frmLogin").submit((e) => {
+                e.preventDefault();
+                var datos = $("#frmLogin").serialize();
+                var url = "@Url.Content("~/Login/Verifica")";
+                $.post(url, datos, (response) => {
+                    if (response == "1")
+                        document.location.href = "@Url.Content("~/Home/index")";
+                    else
+                        alert(response);
+                });
+            });
+
+
+
+
+
+
+        });
+    </script>
+}

@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Sistema Bodega</title>
+    @Styles.Render("~/Template/css")
+</head>
+
+<body>
+    <section id="container">
+        <!-- **********************************************************************************************************************************************************
+            TOP BAR CONTENT & NOTIFICATIONS
+            *********************************************************************************************************************************************************** -->
+        <!--header start-->
+        <header class="header black-bg">
+            <div class="sidebar-toggle-box">
+                <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+            </div>
+            <!--logo start-->
+            <a href="index.html" class="logo"><b>SISTEMA<span>BODEGA</span></b></a>
+            <!--logo end-->
+            <div class="top-menu">
+                <ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="@Url.Action("LogOff","Login")">Cerrar Sesion</a></li>
+                </ul>
+            </div>
+        </header>
+        <!--header end-->
+        <!-- **********************************************************************************************************************************************************
+            MAIN SIDEBAR MENU
+            *********************************************************************************************************************************************************** -->
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu" id="nav-accordion">
+
+                    <li class="mt">
+                        <a href="@Url.Action("Index","Ventas")">
+                            <i class="fa fa-balance-scale" aria-hidden="true"></i>
+                            <span>VENDER</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-desktop"></i>
+                            <span>PRODUCTOS</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="@Url.Action("FindAll","Usuario")">Listar Productos</a></li>
+                            <li><a href="#">Agregar Productos</a></li>
+                            <li><a href="#">Panels</a></li>
+                            <li><a href="font_awesome.html">Font Awesome</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <span>USUARIOS</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="grids.html">Grids</a></li>
+                            <li><a href="calendar.html">Calendar</a></li>
+                            <li><a href="gallery.html">Gallery</a></li>
+                            <li><a href="todo_list.html">Todo List</a></li>
+                            <li><a href="dropzone.html">Dropzone File Upload</a></li>
+                            <li><a href="inline_editor.html">Inline Editor</a></li>
+                            <li><a href="file_upload.html">Multiple File Upload</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-book"></i>
+                            <span>REPORTES</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="blank.html">Blank Page</a></li>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="lock_screen.html">Lock Screen</a></li>
+                            <li><a href="profile.html">Profile</a></li>
+                            <li><a href="invoice.html">Invoice</a></li>
+                            <li><a href="pricing_table.html">Pricing Table</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="404.html">404 Error</a></li>
+                            <li><a href="500.html">500 Error</a></li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+        <!-- **********************************************************************************************************************************************************
+            MAIN CONTENT
+            *********************************************************************************************************************************************************** -->
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper site-min-height">
+                <h3><i class="fa fa-angle-right"></i> @ViewBag.Title</h3>
+                @RenderBody()                
+            </section>
+            <!-- /wrapper -->
+        </section>
+        <!-- /MAIN CONTENT -->
+        <!--main content end-->
+        <!--footer start-->
+        <footer class="site-footer">
+            <div class="text-center">
+                <p>
+                    &copy; Copyrights <strong>SISTEMA BODEGA</strong>. Todos los Derechos Reservados
+                </p>
+                <a href="#" class="go-top">
+                    <i class="fa fa-angle-up"></i>
+                </a>
+            </div>
+        </footer>
+        <!--footer end-->
+    </section>
+    @Scripts.Render("~/Template/js")
+    @Scripts.Render("~/Template/jsMain")
+</body>
+
+</html>

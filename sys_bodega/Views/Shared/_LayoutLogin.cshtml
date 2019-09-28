@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@ViewBag.Title - Sistema Bodega</title>
+
+  <!-- Favicons -->
+  <link href="../../img/favicon.png" rel="icon">
+  <link href="../../img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    @Styles.Render("~/Template/css")
+  
+</head>
+
+<body>
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+    @RenderBody()
+    <!-- js placed at the end of the document so the pages load faster -->
+    @Scripts.Render("~/Template/js")
+    @RenderSection("scripts", required: false)
+    <script>
+        $.backstretch("../../img/login-bg.jpg", {
+            speed: 500
+        });
+    </script>
+</body>
+
+</html>

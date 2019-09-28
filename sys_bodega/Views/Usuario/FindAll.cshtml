@@ -1,0 +1,59 @@
+﻿@model IEnumerable<sys_bodega.Models.Usuario>
+@{
+    ViewBag.Title = "FindAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="row mt">
+        <div class="col-lg-12">
+            <h4><i class="fa fa-angle-right"></i> Lista de Usuarios</h4>
+            <div class="content-panel table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td align="center">#</td>
+                            <td align="center">Nombre</td>
+                            <td align="center">Correo</td>
+                            <td align="center">Contraseña</td>
+                            <td align="center">Token</td>
+                            <td align="center">Id Estado</td>
+                            <td align="center">Editar</td>
+                            <td align="center">Estado</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var usuario in Model)
+                        {
+                        <tr>
+                            <td align="center">
+                                @Html.DisplayFor(modelItem => usuario.id)
+                            </td>
+                            <td align="center">
+                                @Html.DisplayFor(modelItem => usuario.nombre)
+                            </td>
+                            <td align="center">
+                                @Html.DisplayFor(modelItem => usuario.correo)
+                            </td>
+                            <td align="center">
+                                @Html.DisplayFor(modelItem => usuario.contraseña)
+                            </td>
+                            <td align="center">
+                                @Html.DisplayFor(modelItem => usuario.token)
+                            </td>
+                            <td align="center">
+                                @Html.DisplayFor(modelItem => usuario.idEstado)
+                            </td>
+                            <td align="center">
+                                <a href="#" class="btn btn-success">Editar</a>
+                            </td>
+                            <td align="center">
+                                <a href="#" class="btn btn-warning">Estado</a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
