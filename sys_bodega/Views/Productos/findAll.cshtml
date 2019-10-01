@@ -19,28 +19,43 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var usuario in Model)
+                    @foreach (var producto in Model)
                     {
-                        <tr>
-                            <td align="center">
-                                @Html.DisplayFor(modelItem => usuario.id)
-                            </td>
-                            <td align="center">
-                                @Html.DisplayFor(modelItem => usuario.marca)
-                            </td>
-                            <td align="center">
-                                @Html.DisplayFor(modelItem => usuario.descripcion)
-                            </td>
-                            <td align="center">
-                                @Html.DisplayFor(modelItem => usuario.idStock)
-                            </td>
-                            <td align="center">
-                                <a href="#" class="btn btn-success">Editar</a>
-                            </td>
-                            <td align="center">
-                                <a href="#" class="btn btn-warning">Estado</a>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td align="center">
+                            @Html.DisplayFor(modelItem => producto.id)
+                        </td>
+                        <td align="center">
+                            @Html.DisplayFor(modelItem => producto.marca)
+                        </td>
+                        <td align="center">
+                            @Html.DisplayFor(modelItem => producto.descripcion)
+                        </td>
+                        <td align="center">
+                            @Html.DisplayFor(modelItem => producto.cantEstablecida)
+                        </td>
+                        <td align="center">
+                            @Html.DisplayFor(modelItem => producto.cantExistencia)
+                        </td>
+                        <td align="center">
+                            @Html.DisplayFor(modelItem => producto.cantMinima)
+                        </td>
+                        <td align="center">
+                            @Html.DisplayFor(modelItem => producto.fechaRegistro)
+                        </td>
+                        <td align="center">
+                            @Html.DisplayFor(modelItem => producto.fechaVencimientoProducto)
+                        </td>
+                        <td align="center">
+                            @Html.DisplayFor(modelItem => producto.idEstado)
+                        </td>
+                        <td align="center">
+                            <a href="#" class="btn btn-success">Editar</a>
+                        </td>
+                        <td align="center">
+                            <a href="#" class="btn btn-warning">Estado</a>
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>

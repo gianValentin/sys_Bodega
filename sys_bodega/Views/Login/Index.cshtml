@@ -33,9 +33,9 @@
 
             $("#frmLogin").submit((e) => {
                 e.preventDefault();
-                var datos = $("#frmLogin").serialize();
+                var producto = $("#frmLogin").serialize();
                 var url = "@Url.Content("~/Login/Verifica")";
-                $.post(url, datos, (response) => {
+                $.post(url, producto, (response) => {
                     if (response == "1")
                         document.location.href = "@Url.Content("~/Home/index")";
                     else

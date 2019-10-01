@@ -128,13 +128,16 @@
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\VentasController.cs" />
     <Compile Include="DAL\Conexion.cs" />
+    <Compile Include="DAL\EstadoDal.cs" />
     <Compile Include="DAL\ProductoDal.cs" />
     <Compile Include="DAL\UsuarioDal.cs" />
     <Compile Include="Filters\FiltroSessiom.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Estado.cs" />
     <Compile Include="Models\Producto.cs" />
+    <Compile Include="Models\Stock.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="PasswordHash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -322,6 +325,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\Productos\findAll.cshtml" />
+    <Content Include="Views\Productos\addProductoStock.cshtml" />
     <None Include="Views\Shared\_LayoutLogin.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config">

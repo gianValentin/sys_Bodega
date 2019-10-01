@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "Agregar Nuevo Producto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <form id="frmProducto">
+        <label>Marca</label>
+        <input type="text" name="marca" /><br />
+        <label>Descripcion</label>
+        <input type="text" name="descripcion" /><br />
+        <label>cant Establecida:</label>
+        <input type="text" name="cantEstablecida" /><br />
+        <label>cant Existencias:</label>
+        <input type="text" name="cantExistencia" /><br />
+        <label>cant Minimas:</label>
+        <input type="text" name="cantMinima" /><br />
+        <label>Fecha Registro:</label>
+        <input type="date" name="fechaRegistro" /><br />
+        <label>Fecha Vencimiento:</label>
+        <input type="date" name="fechaVencimientoProducto" /><br />
+        <label>Estado:</label>
+        <input type="text" name="idEstado" value="1" readonly/><br />
+        <input type="submit" value="Enviar" />
+    </form>
+    <input type="text" name="codBarra" id="txtCodigoBarra" />
+</div>
+<div>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>Codigo Barra</td>
+            </tr>
+        </thead>
+        <tbody id="lstStock">
+        </tbody>        
+    </table>
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+
+            var codigoBarraArray = new Array();
+
+            $("#frmProducto").submit(e => {
+                e.preventDefault();
+
+                var oProducto = $("#frmProducto").serialize();
+                var codigoBarra = JSON.stringify(codigoBarraArray);
+                var url = "@Url.Content("~/Productos/addProductoStock")";
+                var data=(oProducto + '&codigosBarra='+codigoBarra);
+                $.post(url, data, (Response) => {                    
+                    console.log(Response);
+                });
+
+            });
+
+            $("#txtCodigoBarra").on("input", function () {
+                var codigoBarra = $(this).val();
+
+                if (codigoBarra.length > 10) {
+                    codigoBarraArray.push(codigoBarra);                    
+                    cargarStock();
+                }
+                
+            });
+
+            function cargarStock() {
+                var template = ``;
+                codigoBarraArray.forEach(function(elemets) {
+                    template +=
+                    `
+                    <tr>
+                       <td>#</td>
+                       <td>${elemets}</td>
+                    </tr>
+                     `;
+                });
+                $("#lstStock").html(template);
+                $("#txtCodigoBarra").val('');
+            }
+
+        });
+    </script>
+}

@@ -13,5 +13,7 @@ namespace sys_bodega.Models
         public string contraseña { get; set; }
         public char token { get; set; }
         public int idEstado { get; set; }
+
+        public virtual Estado estado { get; set; }
     }
 }

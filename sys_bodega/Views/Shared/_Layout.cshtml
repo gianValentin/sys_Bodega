@@ -50,8 +50,8 @@
                         </a>
                         <ul class="sub">
                             <li><a href="@Url.Action("FindAll","Productos")">Listar Productos</a></li>
-                            <li><a href="#">Agregar Productos</a></li>
-                            <li><a href="#">Panels</a></li>
+                            <li><a href="@Url.Action("addProductoStock","Productos")">Nuevo Producto</a></li>
+                            <li><a href="gallery.html">Actualizar Stock</a></li>
                             <li><a href="font_awesome.html">Font Awesome</a></li>
                         </ul>
                     </li>
@@ -61,9 +61,7 @@
                             <span>USUARIOS</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="@Url.Action("FindAll","Usuario")">Listar Usuarios</a></li>
-                            <li><a href="calendar.html">Calendar</a></li>
-                            <li><a href="gallery.html">Gallery</a></li>
+                            <li><a href="@Url.Action("FindAll","Usuario")">Listar Usuarios</a></li>                            
                             <li><a href="todo_list.html">Todo List</a></li>
                             <li><a href="dropzone.html">Dropzone File Upload</a></li>
                             <li><a href="inline_editor.html">Inline Editor</a></li>
@@ -87,7 +85,7 @@
                             <li><a href="500.html">500 Error</a></li>
                         </ul>
                     </li>
-                    
+
                 </ul>
                 <!-- sidebar menu end-->
             </div>
@@ -100,7 +98,7 @@
         <section id="main-content">
             <section class="wrapper site-min-height">
                 <h3><i class="fa fa-angle-right"></i> @ViewBag.Title</h3>
-                @RenderBody()                
+                @RenderBody()
             </section>
             <!-- /wrapper -->
         </section>
@@ -121,6 +119,7 @@
     </section>
     @Scripts.Render("~/Template/js")
     @Scripts.Render("~/Template/jsMain")
+    @RenderSection("scripts", required: false)
 </body>
 
 </html>
