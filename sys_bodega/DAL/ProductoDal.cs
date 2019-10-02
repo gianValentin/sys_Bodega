@@ -15,6 +15,21 @@ namespace sys_bodega.DAL
         SqlConnection cn = new SqlConnection();
         Conexion conexion = new Conexion();
         SqlCommand cmd;
+        public int getNuevoId()
+        {
+            int id = 0;
+            cn = conexion.conectar();
+            cmd = new SqlCommand("sp_obtenerNuevoIdProducto", cn);
+            cn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                id = Convert.ToInt32(dr["id"]);
+            }
+            cn.Close();
+            cmd.Dispose();
+            return id;
+        }
 
         public List<Producto> FindAllProducto()
         {

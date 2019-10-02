@@ -9,6 +9,6 @@ namespace sys_bodega.Models
     {
         public string codigoBarra { get; set; }
         public int idProducto { get;set; }
-        public int idEstadp { get; set; }
+        public int idEstado { get; set; }
     }
 }

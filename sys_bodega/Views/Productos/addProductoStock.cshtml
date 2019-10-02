@@ -48,12 +48,31 @@
             $("#frmProducto").submit(e => {
                 e.preventDefault();
 
-                var oProducto = $("#frmProducto").serialize();
-                var codigoBarra = JSON.stringify(codigoBarraArray);
-                var url = "@Url.Content("~/Productos/addProductoStock")";
-                var data=(oProducto + '&codigosBarra='+codigoBarra);
-                $.post(url, data, (Response) => {                    
-                    console.log(Response);
+                if (codigoBarraArray.length < 1)
+                    alert("Crear Producto Sin Agregar Stock!");
+                else {
+
+                }
+                    
+                var url = "@Url.Content("~/Productos/addProductoStock")";      
+                $.ajax({
+                    url: url,
+                    type: "post",
+                    traditional: true,                    
+                    data: {
+                        marca: "Maltin Pawer",
+                        descripcion: "gaseosa",
+                        cantEstablecida: 20,
+                        cantExistencia: 20,
+                        cantMinima: 20,
+                        fechaRegistro: new Date().toISOString(),
+                        fechaVencimientoProducto: '02/11/2019',
+                        idEstado: 1,
+                        codigosBarra: codigoBarraArray
+                    },
+                    success: function (respomse) {
+                        console.log(respomse);
+                    },
                 });
 
             });
@@ -72,12 +91,10 @@
                 var template = ``;
                 codigoBarraArray.forEach(function(elemets) {
                     template +=
-                    `
-                    <tr>
+                    `<tr>
                        <td>#</td>
                        <td>${elemets}</td>
-                    </tr>
-                     `;
+                    </tr>`;
                 });
                 $("#lstStock").html(template);
                 $("#txtCodigoBarra").val('');

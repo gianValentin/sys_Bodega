@@ -11,6 +11,7 @@ namespace sys_bodega.Controllers
     public class ProductosController : Controller
     {
         ProductoDal productoDal = new ProductoDal();
+        StockDal stockDal = new StockDal();
         public ActionResult findAll()
         {
             var lstProductos = productoDal.FindAllProducto();
@@ -24,21 +25,23 @@ namespace sys_bodega.Controllers
         }
 
         [HttpPost]
-        public ActionResult addProductoStock(Producto oProducto,Array codigosBarra)
+        public ActionResult addProductoStock(Producto oProducto,string[] codigosBarra)
         {
             var result = "";
             if (productoDal.addProducto(oProducto).Equals("ok"))
-            {
+            {                
                 foreach (var cod in codigosBarra)
-                {
-                    //pendiente
+                {                    
+                    Stock stock = new Stock();
+                    stock.codigoBarra = cod.ToString();
+                    stock.idProducto = productoDal.getNuevoId();
+                    stock.idEstado = 1;
+                    if (!stockDal.addStock(stock))
+                        result = "error al Agregar Stock a Este Producto!";
                 }
             }
             else
                 result = "error al guardar datos de Producto!";
-
-            
-
             return Content(result);
         }
     }
